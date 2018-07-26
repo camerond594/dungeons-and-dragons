@@ -99,9 +99,10 @@ class WeaponsMixin(models.Model):
 
     name = models.CharField(max_length=30)
     attack_bonus = models.IntegerField()
-    damage_type = models.CharField()
-    hit_die = models.CharField(choices=HIT_DIE_CHOICES)
+    damage_type = models.CharField(max_length=20)
+    hit_die = models.CharField(max_length=4, choices=HIT_DIE_CHOICES)
     description = models.CharField(max_length=200)
+    active = models.BooleanField(default=False)
 
 
 class EquipmentMixin(models.Model):
@@ -121,7 +122,7 @@ class PlayerDescriptionMixin(models.Model):
         ('GENERIC_DESCRIPTION', 'Generic Description'),
     )
 
-    description_type = models.CharField(choices=DESCRIPTION_TYPES_CHOICES)
+    description_type = models.CharField(max_length=20, choices=DESCRIPTION_TYPES_CHOICES)
     description = models.CharField(max_length=200)
 
 
@@ -130,33 +131,33 @@ class CharacterLooksBackstoryMixin(models.Model):
     age = models.IntegerField()
     height = models.IntegerField()
     weight = models.IntegerField()
-    eyes = models.CharField()
-    skin = models.CharField()
-    hair = models.CharField()
+    eyes = models.CharField(max_length=10)
+    skin = models.CharField(max_length=10)
+    hair = models.CharField(max_length=10)
     appearance = models.CharField(max_length=500)
 
-    character_backstory = models.CharField()
+    character_backstory = models.CharField(max_length=1000)
 
 
 class AlliesOrganizations(models.Model):
 
-    name = models.CharField()
-    description = models.CharField()
-    location = models.CharField()
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
+    location = models.CharField(max_length=30)
 
 
 class LanguageMixin(models.Model):
 
-    language_name = models.CharField()
-    description = models.CharField()
+    language_name = models.CharField(max_length=20)
+    description = models.CharField(max_length=100)
     races_used_by = models.ManyToManyField('Race')
 
 
 # Needs more work
 class Race(models.Model):
 
-    name = models.CharField()
-    description = models.CharField()
+    name = models.CharField(max_length=20)
+    description = models.CharField(max_length=100)
 
 
 class SpellsMixin(models.Model):
@@ -168,7 +169,7 @@ class SpellsMixin(models.Model):
         ('CON', 'Constitution'),
     )
 
-    spellcasting_class = models.CharField(choices=SPELLCASTING_CLASS_CHOICES)
+    spellcasting_class = models.CharField(max_length=20, choices=SPELLCASTING_CLASS_CHOICES)
 
     # Ability Modifier for given class
     spellcasting_ability = models.IntegerField()
@@ -182,79 +183,92 @@ class SpellsMixin(models.Model):
 
 class Spell(models.Model):
 
-    name = models.CharField()
-    description = models.CharField()
+    SPELL_SHAPE_CHOICES = (
+        ('TCH', 'Touch'),
+        ('CN', 'Cone'),
+        ('CB', 'Cube'),
+    )
+
+    name = models.CharField(max_length=30)
+    description = models.CharField(max_length=100)
     spell_level = models.IntegerField(default=0)
+    casting_time = models.IntegerField(default=0)
+    range = models.IntegerField(default=0)
+    shape = models.CharField(max_length=20, choices=SPELL_SHAPE_CHOICES)
+    active = models.BooleanField(default=False)
 
 
 class Character(models.Model):
 
-    character_id = models.IntegerField()
     active = models.BooleanField(default=True)
 
     # User for a given Character
 
-    player = models.ForeignKey('Player', on_delete=models.CASCADE)
-
-    # Basic Character Facts
-
-    facts = models.ForeignKey('BasicFactsMixin', on_delete=models.CASCADE)
-
-    # Attributes
-
-    attributes = models.ForeignKey('AttributesSavingThrowsMixin', on_delete=models.CASCADE)
-
-    inspirations_die = models.IntegerField()
-    prof_bonus = models.IntegerField()
-
-    # Saving Throws
-
-    saving_throws = models.ForeignKey('AttributesSavingThrowsMixin', on_delete=models.CASCADE)
-
-    # Skills
-
-    skills = models.ForeignKey('SkillsMixin', on_delete=models.CASCADE)
-
-    armor_class = models.IntegerField()
-    initiative = models.IntegerField()
-    speed = models.IntegerField()
-
-    hit_points_max = models.IntegerField()
-    curr_hit_points = models.IntegerField()
-    temp_hit_points = models.IntegerField()
-
-    hit_dice = models.ForeignKey('HitDiceMixin', on_delete=models.CASCADE)
-
-    death_save_success = models.IntegerField()
-    death_save_failure = models.IntegerField()
-
-    weapons = models.ManyToManyField('WeaponsMixin')
-    spells = models.ManyToManyField('Spell')
-
-    spellcasting_skills = models.ForeignKey('SpellsMixin')
-
-    equipment = models.ManyToManyField('EquipmentMixin')
-
-    # Player Description Basics
-
-    personality_traits = models.ManyToManyField('PlayerDescriptionMixin')
-    ideals = models.ManyToManyField('PlayerDescriptionMixin')
-    bonds = models.ManyToManyField('PlayerDescriptionMixin')
-    flaws = models.ManyToManyField('PlayerDescriptionMixin')
-    features_and_traits = models.ManyToManyField('PlayerDescriptionMixin')
-
-    # Character Looks and Backstory
-
-    looks_backstory = models.ForeignKey('CharacterLooksBackstoryMixin')
-    character_image = models.ImageField()
-
-    # Treasure
-
-    treasure = models.ManyToManyField('PlayerDescriptionMixin')
-
+    # player = models.ForeignKey('Player', on_delete=models.CASCADE, related_name='player')
+    #
+    # # Basic Character Facts
+    #
+    facts = models.ForeignKey('BasicFactsMixin', on_delete=models.CASCADE, related_name='facts', default=None)
+    #
+    # # Attributes
+    #
+    # attributes = models.ForeignKey('AttributesSavingThrowsMixin', on_delete=models.CASCADE, related_name='attributes')
+    #
+    # inspiration_die = models.IntegerField()
+    # prof_bonus = models.IntegerField()
+    #
+    # # Saving Throws
+    #
+    # saving_throws = models.ForeignKey('AttributesSavingThrowsMixin', on_delete=models.CASCADE, related_name='saving_throws')
+    #
+    # # Skills
+    #
+    # skills = models.ForeignKey('SkillsMixin', on_delete=models.CASCADE, related_name='skills')
+    #
+    # armor_class = models.IntegerField()
+    # initiative = models.IntegerField()
+    # speed = models.IntegerField()
+    #
+    # hit_points_max = models.IntegerField()
+    # curr_hit_points = models.IntegerField()
+    # temp_hit_points = models.IntegerField()
+    #
+    # hit_dice = models.ForeignKey('HitDiceMixin', on_delete=models.CASCADE, related_name='hit_dice')
+    #
+    # death_save_success = models.IntegerField()
+    # death_save_failure = models.IntegerField()
+    #
+    # weapons = models.ManyToManyField('WeaponsMixin', related_name='weapons')
+    # spells = models.ManyToManyField('Spell', related_name='spells')
+    #
+    # spellcasting_skills = models.ForeignKey('SpellsMixin', related_name='spellcasting')
+    #
+    # equipment = models.ManyToManyField('EquipmentMixin', related_name='equipment')
+    #
+    # # Player Description Basics
+    #
+    # personality_traits = models.ManyToManyField('PlayerDescriptionMixin', related_name='personality_traits')
+    # ideals = models.ManyToManyField('PlayerDescriptionMixin', related_name='ideals')
+    # bonds = models.ManyToManyField('PlayerDescriptionMixin', related_name='bonds')
+    # flaws = models.ManyToManyField('PlayerDescriptionMixin', related_name='flaws')
+    # features_and_traits = models.ManyToManyField('PlayerDescriptionMixin', related_name='features_and_traits')
+    #
+    # # Character Looks and Backstory
+    #
+    # looks_backstory = models.ForeignKey('CharacterLooksBackstoryMixin', related_name='looks_backstory')
+    # # character_image = models.ImageField()
+    #
+    # # Treasure
+    #
+    # treasure = models.ManyToManyField('PlayerDescriptionMixin', related_name='treasure')
 
     def __unicode__(self):
-        return self.character_name
+        return self.facts.character_name
+
+    def create_character(self):
+        self.active = True
+        self.save()
+        return
 
 
 class Player(models.Model):
@@ -265,14 +279,14 @@ class Player(models.Model):
         return self.name
 
 
-class DungeonMaster(models.Model):
-    name = models.CharField(max_length=50, null=True)
-
-    def __unicode__(self):
-        return self.name
-
-
-class Campaign(models.Model):
-
-    dm = models.ForeignKey('Player', related_name='dungeon_master')
-    players = models.ManyToManyField('Player')
+# class DungeonMaster(models.Model):
+#     name = models.CharField(max_length=50, null=True)
+#
+#     def __unicode__(self):
+#         return self.name
+#
+#
+# class Campaign(models.Model):
+#
+#     dm = models.ForeignKey('Player', related_name='dungeon_master')
+#     players = models.ManyToManyField('Player')

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Characters</title>
+</head>
+<body>
+    <h1>Here are the characters:</h1>
+
+    {% for character in characters %}
+        <h3>{{ character }}</h3>
+    {% endfor %}
+
+    <a href="javascript:history.back()">Go Back</a>
+</body>
+</html>
