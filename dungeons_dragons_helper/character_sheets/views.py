@@ -49,3 +49,8 @@ def list_characters(request):
 def character_detail(request, character_id):
     character = get_object_or_404(Character, pk=character_id)
     return render(request, 'character_sheets/character_detail.html', {'character': character})
+
+
+def character_edit(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+    return render(request, 'character_sheets/character_edit.html', {'character': character})
