@@ -8,7 +8,7 @@
     <h1>Here are the characters:</h1>
 
     {% for character in characters %}
-        <h3>{{ character }}</h3>
+        <a href={{ character.id }}><h3>{{ character }}</h3></a>
     {% endfor %}
 
     <a href="javascript:history.back()">Go Back</a>

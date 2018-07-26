@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import uuid
 
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from character_sheets.forms import CharacterCreateForm
@@ -41,6 +41,11 @@ def list_edit_characters(request):
 
 
 # This method is a stub — Finish later
-def get_characters(request):
+def list_characters(request):
     characters = Character.objects.all()
-    return render(request, 'character_sheets/view_characters.html', {'characters': characters})
+    return render(request, 'character_sheets/list_characters.html', {'characters': characters})
+
+
+def character_detail(request, character_id):
+    character = get_object_or_404(Character, pk=character_id)
+    return render(request, 'character_sheets/character_detail.html', {'character': character})

@@ -8,5 +8,6 @@ urlpatterns = [
 
     url(r'^create/$', views.create_character, name='create_character'),
     url(r'^edit/$', views.list_edit_characters, name="list_edit_characters"),
-    url(r'^view_all/$', views.get_characters, name="get_characters"),
+    url(r'^characters/$', views.list_characters, name="list_characters"),
+    url(r'^characters/(?P<character_id>\d+)$', views.character_detail, name="character_detail"),
 ]
