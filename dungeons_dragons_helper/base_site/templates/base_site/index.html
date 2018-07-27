@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>D&D</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to the main page!</h1>
 
-    <h3><a href="sheets/create/">Create a character</a></h3>
-    <h3><a href="sheets/edit/">Edit a character</a></h3>
-    <h3><a href="sheets/characters/">Characters List</a></h3>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Dungeons and Dragons Helper</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/sheets/characters/create/">Create Character</a></li>
+          <li><a href="/sheets/characters/">Character List</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                <a href="javascript:history.back()"><h3 style="padding-left: 0.5em;">Go Back</h3></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+          $('li.active').removeClass('active');
+          $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+        });
+    </script>
 </body>
 </html>

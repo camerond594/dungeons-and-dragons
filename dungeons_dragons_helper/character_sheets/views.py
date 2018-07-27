@@ -41,9 +41,9 @@ def list_edit_characters(request):
 
 
 # This method is a stub — Finish later
-def list_characters(request):
+def characters_list(request):
     characters = Character.objects.all()
-    return render(request, 'character_sheets/list_characters.html', {'characters': characters})
+    return render(request, 'character_sheets/characters_list.html', {'characters': characters})
 
 
 def character_detail(request, character_id):
