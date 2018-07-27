@@ -28,10 +28,10 @@ def create_character(request):
             facts.save()
             character.facts = facts
             character.save()
-            return redirect('get_characters')
+            return redirect('characters_list')
     else:
         form = CharacterCreateForm()
-        return render(request, 'character_sheets/create_character.html', {'form': form})
+        return render(request, 'character_sheets/character_create.html', {'form': form})
 
 
 # This method is a stub — Finish later
