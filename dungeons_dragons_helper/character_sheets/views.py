@@ -9,6 +9,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from character_sheets.forms import CharacterCreateForm
 from character_sheets.models import Character, BasicFactsMixin
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def create_character(request):
@@ -34,15 +36,19 @@ def create_character(request):
         return render(request, 'character_sheets/character_create.html', {'form': form})
 
 
-# This method is a stub — Finish later
-def list_edit_characters(request):
-    characters = Character.objects.all()
-    return render(request, 'character_sheets/list_edit_characters.html', {'characters': characters})
-
-
-# This method is a stub — Finish later
 def characters_list(request):
-    characters = Character.objects.all()
+    characters_list = Character.objects.all()
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(characters_list, 5)
+
+    try:
+        characters = paginator.page(page)
+    except PageNotAnInteger:
+        characters = paginator.page(1)
+    except EmptyPage:
+        characters = paginator.page(paginator.num_pages)
+
     return render(request, 'character_sheets/characters_list.html', {'characters': characters})
 
 
