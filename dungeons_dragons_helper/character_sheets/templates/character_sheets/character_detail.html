@@ -1,0 +1,11 @@
+{% extends 'base_site/index.html' %}
+
+{% block content %}
+    <h3>Character Name: {{ character }}</h3>
+    <h3>Character Class: {{ character.facts.character_class }}</h3>
+    <h3>Character Level: {{ character.facts.character_level }}</h3>
+    <h3>Character Race: {{ character.facts.character_race }}</h3>
+    <h3>Character Background: {{ character.facts.character_background }}</h3>
+    <h3>Character Alignment: {{ character.facts.character_background }}</h3>
+    <h3>Character Experience Points: {{ character.facts.character_exp_points }}</h3>
+{% endblock %}
