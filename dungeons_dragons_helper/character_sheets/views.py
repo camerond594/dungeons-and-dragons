@@ -37,7 +37,7 @@ def create_character(request):
 
 
 def characters_list(request):
-    characters_list = Character.objects.all()
+    characters_list = Character.objects.get_queryset().order_by('id')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(characters_list, 5)
