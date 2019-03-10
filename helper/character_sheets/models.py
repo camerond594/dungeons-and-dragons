@@ -1,9 +1,14 @@
 from django.db import models
+from django.utils import timezone
+from django.conf import settings
 
 
 class Character(models.Model):
     player_id = models.IntegerField()
     name = models.CharField(max_length=50)
+    created_date = models.DateTimeField(default=timezone.now)
+    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
+    description = models.CharField(max_length=1000, default='')
 
     BARBARIAN = 'BARB'
     BARD = 'BARD'
@@ -42,3 +47,6 @@ class Character(models.Model):
 
     def attributes(self):
         return self.name, self.character_id, self.character_class
+
+    def __str__(self):
+        return self.name

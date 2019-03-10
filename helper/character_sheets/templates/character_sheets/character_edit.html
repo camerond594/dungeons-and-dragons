@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Edit</title>
+</head>
+<body>
+    {% extends 'character_sheets/character_list.html' %}
+
+    {% block content %}
+        <h1>Character Edit</h1>
+        <form method="POST" class="character-edit-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
