@@ -20,6 +20,7 @@ class CharacterForm(forms.ModelForm):
     #     ('NO_CLASS', 'No Class'),
     # ]
     # character_class = forms.ChoiceField(choices=class_choices, label='Character Class')
+    description = forms.CharField( widget=forms.Textarea )
 
     class Meta:
         model = Character
