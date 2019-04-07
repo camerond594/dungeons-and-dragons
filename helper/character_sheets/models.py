@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 class Character(models.Model):
-    player_id = models.IntegerField()
+    character_id = models.IntegerField()
     name = models.CharField(max_length=50)
     created_date = models.DateTimeField(default=timezone.now)
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)

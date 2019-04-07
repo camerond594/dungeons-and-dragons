@@ -1,0 +1,13 @@
+{% extends 'character_sheets/sheets_base.html' %}
+
+{% block content %}
+    <h1>{{ character.name }}</h1>
+    <ul>
+        <li>Class: {{ character.character_class }}</li>
+        <li>Description: {{ character.description }}</li>
+        <li>Created: {{ character.created_date }}</li>
+        <li>Creator: {{ character.creator }}</li>
+    </ul>
+
+    <a href="{% url 'character_list' %}"> Back to Character List </a>
+{% endblock %}
