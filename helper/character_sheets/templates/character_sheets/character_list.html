@@ -4,7 +4,7 @@
     <h1>This is the character list area</h1>
     <ul>
     {% for character in characters %}
-        <li><a href="{% url 'character_detail' character_id=character.character_id %}">{{ character }}</a></li>
+        <li><a href="{% url 'character_detail' pk=character.pk %}">{{ character }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

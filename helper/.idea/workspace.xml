@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a29bbc5-7f55-4384-89f2-96210be302da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/character_sheets/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/character_sheets/templates/character_sheets/sheets_base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/character_sheets/models.py" afterPath="$PROJECT_DIR$/character_sheets/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_edit.html" afterPath="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html" afterPath="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/character_sheets/urls.py" afterPath="$PROJECT_DIR$/character_sheets/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/character_sheets/views.py" afterPath="$PROJECT_DIR$/character_sheets/views.py" />
@@ -64,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/character_sheets/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+              <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -76,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/character_sheets/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -96,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/character_sheets/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.8013356">
+              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -108,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="character_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="character_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20869565">
+            <state vertical-scroll-proportion="-5.0">
               <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
               <folding />
             </state>
@@ -142,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+              <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -178,11 +173,11 @@
         <option value="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_edit.html" />
         <option value="$PROJECT_DIR$/character_sheets/templates/character_sheets/sheets_base.html" />
         <option value="$PROJECT_DIR$/helper/admin.py" />
-        <option value="$PROJECT_DIR$/character_sheets/urls.py" />
-        <option value="$PROJECT_DIR$/character_sheets/models.py" />
-        <option value="$PROJECT_DIR$/character_sheets/views.py" />
-        <option value="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html" />
         <option value="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_detail.html" />
+        <option value="$PROJECT_DIR$/character_sheets/models.py" />
+        <option value="$PROJECT_DIR$/character_sheets/urls.py" />
+        <option value="$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html" />
+        <option value="$PROJECT_DIR$/character_sheets/views.py" />
       </list>
     </option>
   </component>
@@ -964,21 +959,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_edit.html">
+    <entry file="file://$PROJECT_DIR$/character_sheets/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
-          <folding />
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/character_sheets/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="45" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -990,39 +1003,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/character_sheets/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+          <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/character_sheets/models.py">
+    <entry file="file://$PROJECT_DIR$/character_sheets/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.8013356">
+          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/character_sheets/templates/character_sheets/character_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20869565">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
