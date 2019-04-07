@@ -13,7 +13,8 @@
 <body>
     <div class="page-header">
         <a href="{% url 'character_create' %}" class="top-menu"><span class="glyphicon glyphicon-plus">Create</span></a>
-        <h1><a href="{% url 'character_list' %}">This is a list of characters</a></h1>
+        <a href="{% url 'character_list' %}" class="top-menu"><span class="glyphicon glyphicon-th-list">List</span></a>
+        <h1><a href="{% url 'character_list' %}">Character Sheet Helper</a></h1>
     </div>
 
     <div class="content container">

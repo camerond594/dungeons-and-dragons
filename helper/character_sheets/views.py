@@ -1,9 +1,12 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from rest_framework import viewsets
 
 from character_sheets.forms import CharacterForm
 from character_sheets.models import Character
+from character_sheets.serializers import UserSerializer, CharacterSerializer
 
 
 def character_list(request):
@@ -33,3 +36,17 @@ def character_create(request):
 def character_detail(request, pk):
     character = Character.objects.get(pk=pk)
     return render(request, 'character_sheets/character_detail.html', {'character': character})
+
+
+# ViewSets define the view behavior.
+class CharacterViewSet(viewsets.ModelViewSet):
+    queryset = Character.objects.all()
+    serializer_class = CharacterSerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
