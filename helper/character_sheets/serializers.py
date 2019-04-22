@@ -7,7 +7,7 @@ from character_sheets.models import Character
 class CharacterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Character
-        fields = ('name', 'description', 'creator', 'created_date', 'creator_id')
+        fields = ('name', 'description', 'creator', 'character_class', 'created_date', 'creator_id')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
