@@ -9,5 +9,9 @@
         <li>Creator: {{ character.creator }}</li>
     </ul>
 
+    <p>&nbsp;</p>
+    <a class="btn btn-default" href="{% url 'character_edit' pk=character.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <p>&nbsp;</p>
+
     <a href="{% url 'character_list' %}"> Back to Character List </a>
 {% endblock %}
